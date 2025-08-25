@@ -1,13 +1,14 @@
 
 import pygame as pygame
 import sys as sys
+from balle import Balle
 
 pygame.init()
 
 #Display settings
 
-largeur = 1080
-hauteur = 1920
+largeur = 1920
+hauteur = 1080
 
 screen = pygame.display.set_mode((largeur, hauteur));
 
@@ -17,10 +18,10 @@ screen.fill(backGroundColor);
 #Ball settings
 
 ballColor = (255, 0, 0)
-ballRadius = 40
-
 backgroundBallColor = (255, 255, 255)
-backgroundBallRadius = 45
+
+ball = Balle(40, ballColor);
+backGroundBall = Balle(42, backgroundBallColor);
 
 running = True
 while running:
@@ -28,8 +29,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    pygame.draw.circle(screen, backgroundBallColor, [540,960], backgroundBallRadius)
-    pygame.draw.circle(screen, ballColor, [540,960], ballRadius)
+    ball.draw(screen);
+    backGroundBall.draw(screen);
     
     pygame.display.flip()        
 
