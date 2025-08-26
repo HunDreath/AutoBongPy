@@ -8,6 +8,5 @@ class Balle:
         self.ball_radius = ball_radius;
         self.ball_color = ball_color;
 
-    def draw(self,screen):   
-
-        pygame.draw.circle(screen, self.ballColor, self.ball_color, self.ball_radius)
+    def draw(self, screen):
+        pygame.draw.circle(screen, self.ball_color, self.ball_position, self.ball_radius)
