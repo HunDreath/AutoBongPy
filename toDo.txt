@@ -1,0 +1,18 @@
+
+# Fonctionnement de l'application 
+
+    -- Premier bouton qui genere une video d'une duree de 1 min 01 
+
+    -- Gestion du namming de la video genere 
+
+        Opt : liste deroulante ou l'on choisi une video et on peut la lancer depuis le logiciel 
+
+    -- Pourquoi pas mettre un bouton qui genere une video par defaut et un autre 
+        qui permet de modifier les valeurs de la video comme sa duree le nombre de cercle a casse    
+        ou la couleur de la balle ou encore sa velocite 
+
+    -- Faire en sorte que le screen recorder s'active automatiquement quand on clique sur genere la video 
+
+
+    -- Objectif ultime pouvoir importe une video youtube ou autre 
+        et faire en sorte que ca divise la video en x part en fonction de la taille que l'on veut             et que ca rajoute notre video genere en bas     
