@@ -18,10 +18,19 @@ class AutoBongPy(tk.Tk):
         self.label = tk.Label(self, text='AutoBongPy', font=styles.TITLE_FONT, fg=styles.TITLE_COLOR)
         self.label.pack(pady=10)
 
-    
+        self.button = tk.Button(self, text='StartGame', bg=styles.BUTTON_BG, fg=styles.BUTTON_FG, font=styles.BUTTON_FONT, command=self.just_start_game)
+        self.button.pack(pady=10)
 
         self.button = tk.Button(self, text='GenerateVideo', bg=styles.BUTTON_BG, fg=styles.BUTTON_FG, font=styles.BUTTON_FONT, command=self.generate_video)
         self.button.pack(pady=10)
+
+
+    def just_start_game(self):
+
+        # Thread pour le jeu Pygame
+        thread_game = threading.Thread(target=generate.run_pygame)
+        thread_game.daemon = True
+        thread_game.start()    
 
 
     def generate_video(self):

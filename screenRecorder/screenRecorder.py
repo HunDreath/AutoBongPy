@@ -13,7 +13,7 @@ def screen_recorder(duration=10, output_path="video.mp4", fps=20.0):
         output_path = os.path.join(output_dir, f"capture_{timestamp}.mp4")
 
     with mss.mss() as sct:
-        monitor = sct.monitors[1]  # écran principal
+        monitor = sct.monitors[1] 
         screen_width = monitor['width']
         screen_height = monitor['height']
 
