@@ -1,12 +1,13 @@
 import pygame
 import sys
+from generate.circle import Circle
 from generate.balle import Balle  
 
 def run_pygame():
     pygame.init()
 
-    largeur = 1920
-    hauteur = 1080
+    largeur = 500
+    hauteur = 500
     screen = pygame.display.set_mode((largeur, hauteur))
 
     backGroundColor = (0, 0, 0)
@@ -24,10 +25,18 @@ def run_pygame():
             if event.type == pygame.QUIT:
                 running = False
 
+        screen.fill(backGroundColor)  
         backGroundBall.draw(screen)
         ball.draw(screen)
 
-        pygame.display.flip()
+        circleRadius = 300
+        for i in range(10):
+            circle = Circle(circleRadius)
+            circle.draw(screen)
+            circleRadius += 20
+
+    pygame.display.flip()
+
 
     pygame.quit()
     sys.exit()
