@@ -2,3 +2,11 @@
 # Fonctionnement de l'application 
 
 -- Voir pourquoi le circle ne s'affiche que a la fermeture de la windows
+
+-- cree un bouton qui permet de personnaliser la video 
+    -- temps 
+    -- couleur
+    -- balle
+    -- radius de la balle 
+    -- nombre de balle 
+    -- en fonction de la taille gestion 
