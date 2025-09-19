@@ -6,8 +6,8 @@ from generate.balle import Balle
 def run_pygame():
     pygame.init()
 
-    largeur = 500
-    hauteur = 500
+    largeur = 1920
+    hauteur = 1080
     screen = pygame.display.set_mode((largeur, hauteur))
 
     backGroundColor = (0, 0, 0)
@@ -21,11 +21,7 @@ def run_pygame():
 
     running = True
     while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
 
-        screen.fill(backGroundColor)  
         backGroundBall.draw(screen)
         ball.draw(screen)
 
@@ -34,9 +30,12 @@ def run_pygame():
             circle = Circle(circleRadius)
             circle.draw(screen)
             circleRadius += 20
+            
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False    
 
-    pygame.display.flip()
-
+        pygame.display.flip()
 
     pygame.quit()
     sys.exit()

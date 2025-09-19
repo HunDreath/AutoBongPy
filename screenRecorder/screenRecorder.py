@@ -2,9 +2,9 @@ import mss
 import numpy as np
 import cv2
 import time
-import os 
+import os
 
-def screen_recorder(duration=10, output_path="video.mp4", fps=20.0):
+def screen_recorder(duration=10, output_path=None, fps=20.0):
 
     if output_path is None:
         output_dir = os.path.expanduser("~/AutoBongPy/video")
@@ -13,7 +13,7 @@ def screen_recorder(duration=10, output_path="video.mp4", fps=20.0):
         output_path = os.path.join(output_dir, f"capture_{timestamp}.mp4")
 
     with mss.mss() as sct:
-        monitor = sct.monitors[1] 
+        monitor = sct.monitors[1]
         screen_width = monitor['width']
         screen_height = monitor['height']
 
@@ -29,13 +29,14 @@ def screen_recorder(duration=10, output_path="video.mp4", fps=20.0):
             while time.time() < end_time:
                 img = sct.grab(monitor)
                 frame = np.array(img)
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR) 
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
+
+                if (frame.shape[1], frame.shape[0]) != (screen_width, screen_height):
+                    frame = cv2.resize(frame, (screen_width, screen_height))
 
                 output.write(frame)
-
-                if cv2.waitKey(1) == ord('q'):
-                    print("Arrêt anticipé.")
-                    break
+                
+                time.sleep(1 / fps)  
 
         finally:
             output.release()
